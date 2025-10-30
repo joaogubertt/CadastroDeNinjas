@@ -20,8 +20,8 @@ public class MissoesModel {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "nome_missoes")
-    private String nomeMissoes;
+    @Column(name = "nome")
+    private String nome;
 
     @Column(name = "dificuldade")
     private String dificuldade;
