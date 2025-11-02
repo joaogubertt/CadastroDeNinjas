@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NinjaService {
@@ -20,10 +21,14 @@ public class NinjaService {
     }
 
     //Lista os ninjas por ID
+    public NinjaModel listaNinjasPorID(Long ID){
+        Optional<NinjaModel> ninja =  ninjaRepository.findById(ID);
+        return ninja.orElse(null);
+    }
 
-    public Integer criarNinja() {
-        System.out.println("test");
-        return 1;
+    //Criar um novo ninja
+    public NinjaModel criarNinja(NinjaModel ninja) {
+        return ninjaRepository.save(ninja);
     }
 
 }
