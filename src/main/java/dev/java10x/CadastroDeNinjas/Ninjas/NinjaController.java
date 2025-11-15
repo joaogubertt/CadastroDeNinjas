@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("ninjas")
 public class NinjaController {
 
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
@@ -42,7 +42,7 @@ public class NinjaController {
     }
 
     //Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterar")
+    @PutMapping("/alterar/{id}")
     public ResponseEntity<?> alterarNinjaPorID(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado){
         NinjaDTO ninja = ninjaService.atualizarNinja(id, ninjaAtualizado);
 
